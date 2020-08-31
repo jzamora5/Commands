@@ -1,0 +1,101 @@
+sudo apt install python3-pip
+sudo apt-get install python3-venv
+python3 -m venv .env
+source .env/bin/activate   ...  deactivate
+
+pip install django -U
+
+pip freeze (lists installations)
+
+
+django-admin
+
+django-admin startproject platzigram . (En carpeta actual o sino crea nueva)
+
+
+python3 manage.py 
+
+python3 manage.py runserver
+
+
+python3 manage.py startapp name
+
+""" La Aplication Se debe Instalar en los settings de django admin (la carpeta principal) """
+
+python3 manage.py makemigrations
+
+python3 manage.py migrate
+
+python3 manage.py shell
+
+python3 manage.py shell Add_Users.py
+
+python3 manage.py createsuperuser
+
+python3 manage.py startapp user
+
+
+"""""MYSQL Connection"""""""""
+
+sudo apt-get install libmysqlclient-dev
+
+pip3 install
+
+pip install mysqlclient
+
+
+"""""Create and Edit Instance ORM""""""""""""
+
+from posts.models import User
+
+pablo = User.objects.create(email="hola@gmail.com", password="1234567", first_name="Pablo", last_name="Trinidad")
+
+pablo.id or pablo.pk  para confirmar que esta en la base de datos
+
+pablo.email = "pablo@gmail.com"
+
+pablo.save()
+
+""" OR """
+
+arturo = User()
+
+arturo.email = "arturo@platzi.com"
+arturo.first_name = "Arturo"
+arturo.last_name = "Martinez"
+arturo.password = "MSIComputer"
+arturo.is_admin = True
+arturo.save()
+
+"" OR ""
+arturo = User(email="arturo@platzi.com", first_name="Arturo", last_name="Martinez", password="MSI")
+
+""" Borrar """
+arturo.delete()
+
+
+""" Queries """
+
+# 1 solo Elemento
+user = User.objects.get(email="freddier@platzi.com")
+
+# Filtrar
+platzi_users = User.objects.filter(email__endswith="@platzi.com")
+
+# Traer todos los rows de una tabla
+users = User.objects.all()
+
+# Actualizar Varios
+platzi_users = User.objects.filter(email__endswith="@platzi.com").update(is_admin=True) 
+# Update Regresa entero
+platzi_users = User.objects.filter(email__endswith="@platzi.com")
+for u in platzi_users:
+	print(u.email, ":", u.is_admin)
+
+
+
+
+
+
+
+
