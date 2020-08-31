@@ -1,0 +1,19 @@
+==================================================================================================
+
+npx create-react-app hello-world
+cd hello world
+npm start
+
+==================================================================================================
+
+React Transition Group 
+
+npm install react-transition-group --save
+
+Save actualiza el archivo de dependencias para que aparezca la libreria nueva
+
+import {CSSTransition,TransitionGroup} from 'react-transition-group';
+
+npm install redux react-redux --save
+
+npm install cheet.js --save (For listening keyboard input for easter egg)
