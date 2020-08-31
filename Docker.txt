@@ -1,0 +1,278 @@
+===================================================================================================================
+
+COMANDOS GENERALES
+
+docker info = Ver detalles de la instalacion de docker
+
+docker ps = lista los contenedores en ejecucion
+
+docker ps -a = lista contenedores a detalles tanto en ejecución como  no
+
+docker ps -aq = lista solo los ID de los contenedores (la q significa quiet, tranquilo o silencioso)
+
+docker inspect id_contenedor = detalles internos del contenedor
+
+docker inspect nombre_contenedor = lo mismo que el anterior
+
+docker inspect -f '{{json .Atributo.Atributo.etc}}' nombre_contenedor = filtra una variable especifico del contenedor
+
+docker rename NombreActualContenedor NombreNuevo = Cambiarle el nombre a un contenedor
+
+docker run --name Nombre comando = Crear contenedor con Nombre especifico al correr un comando
+
+docker run --rm Nombre = Borra el contenedor al finalizar la ejecucion
+
+docker logs Nombre_Contenedor = muestra logs de un contenedor especifico
+
+docker rm nombre_contenedor = elimina un contenedor
+
+docker rm $(docker ps -aq) = borra los contenedores que no esten corriendo
+
+docker rm -f $(docker ps -aq) o docker container prune = borra TODOS los contenedores
+
+docker image prune = Borra todos los Dangling Images (Docker images consist of multiple layers. Dangling images are layers that have no relationship to any tagged images.)
+
+docker rmi -f $(docker images -a -q) = Remove all images
+
+===================================================================================================================
+
+CORRER CONTENEDOR DE UBUNTU
+
+docker run ubuntu = Traer una imagen de ubuntu de internet (Corre un comando por defecto)
+
+docker run ubuntu tail -f /dev/null = Correr ubuntu con un comando especifico que queda corriendo infinito
+
+docker run -it ubuntu = Asignar un pseudo-tty (Terminal)
+
+uname -a = System info
+cat /etc/*release = Print Ubuntu system info
+
+===================================================================================================================
+
+CICLO DE VIDA DE CONTENEDOR
+
+
+docker start Nombre_contenedor = iniciar contenedor ya existente
+
+docker attach Nombre_contenedor = Reinsertar terminal y stdin
+
+docker exec -it Nombre_contenedor bash = Ejecutar en contenedor ya existente un comando
+
+docker kill Nombre_contenedor = Matar el proceso completo
+
+docker rm -f Nombre_contenedor = Forzar la eliminación del contenedor
+
+ps = En linux mostrar procesos en ejecucion de la sesion
+
+ps -fea = En linux procesos en ejecucion de TODAS las sesiones
+
+Docker le asigna el PID 1 al proceso con el que se inicia a correr el contenedor
+
+=======================================================================================================================
+
+NGINX
+
+
+docker run --detach = El contenedor de docker quedara corriendo atras en tu terminal
+
+docker run -d --name server nginx = Descarga nginx por defecto con puerto 80 abierto (Pero solo funciona internamente) No se expone
+
+docker run -d --name server -p 8080:80 nginx = Puerto izquierdo es mi maquina, puerto derecho el contenedor
+
+============================================================================================================
+
+DATOS EN DOCKER BIND MOUNTS
+
+
+docker run -d --name db mongo
+
+mkdir mongodata
+
+docker run --name db -d -v /home/jzamora5/mongodata:/data/db mongo = Montar un volumen externo al contenedor para guardar datos
+
+docker inspect -f "{{json .Config.Volumes }}" Nombre_contenedor = en Volumes se puede verificar
+
+docker inspect -f "{{json .Mounts }}" Nombre_contenedor = En Mounts se puede verificar tambien
+
+ls mongodata = Ahora el contenedor escribio cosas alli
+
+
+use platzi
+
+db.user.insert({"Nombre": "Jhoan"})
+
+db.user.find()
+
+Asi se borre el contenedor, los datos siguen estando
+
+=====================================================================================================================
+
+DOCKER VOLUMES (Sugerido en vez de Bind Mount)
+
+
+/var/lib/docker/volumes
+
+docker volume ls = Listar volumenes
+
+docker volume prune = Borrar contenedores
+
+docker volume create Nombre_volumen = crear volume
+
+docker run -d --name db --mount src-Nombre_Volumen,dst=Destino = Monta un volumen en un contenedor src Volumen dst Donde en el contenedor se quire montar
+
+(Mongo)
+
+docker volume create dbdata
+docker run -d --name db --mount src=dbdata,dst=/data/db mongo
+
+=====================================================================================================================
+
+IMAGENES
+
+
+docker pull Nombre_imagen = Trae una imagen de Docker Hub
+
+docker pull Nombre_imagen:version = Trae una imagen especifica de Docker Hub
+
+Eg. docker pull ubuntu:16.04
+
+docker images OR docker image ls = List images
+
+docker rmi -f nombre_imagen O id = Borrar una imagen en partigular
+
+=====================================================================================================================
+
+CONSTRUYENDO IMAGENES
+
+Dockerfile
+
+docker build -t Base(From):Version Contexto(Path) -t (tag)
+
+docker build -t ubuntu:platzi .
+
+docker tag Nombre_imagen:Version usuario/repo:Version
+
+docker tag ubuntu:platzi jzamora9/ubuntu_platzi:platzi
+
+=====================================================================================================================
+
+SISTEMA DE CAPAS
+
+docker history Nombre_imagen:Version = Lista la historia 
+
+docker history ubuntu: platzi
+
+docker history --no-trunc Nombre_imagen:Version = Muestra lista de informacion completa
+
+Herramienta Dive para explorar las capas
+
+https://github.com/wagoodman/dive
+
+dive Nombre_imagen:Version = Provee informacion detallada de las capas de una imagen
+
+=====================================================================================================================
+
+DESARROLLANDO CON DOCKER
+
+https://github.com/platzi/docker
+
+docker build -t platziapp .
+
+Dependiendo de como esté construido un docker file, se va a aprovechar el cache.
+
+Si se realiza un cambio en algun paso del docker file, este invalidara el cache de todos los pasos posteriores
+
+
+docker run --rm -p 3000:3000 -v ${PWD}:/usr/src platziapp
+
+
+=====================================================================================================================
+
+DOCKER NETWORKING
+
+
+docker network ls = Muestra las redes de docker
+
+
+bridge = Deprecado
+
+host = La del computador host
+
+none = Sin network
+
+docker network create --attachable platzinet = Crea una red a la que se puedan pegar otros contenedores
+
+docker run -d --name db mongo
+
+docker network connect platzinet db
+
+docker network inspect platzinet
+
+docker run -d --name app -p 3000:3000 --env MONGO_URL=mongodb://db:27017/test platziapp
+
+docker network connect platzinet app
+
+docker network rm Name_Network = Delete Network created
+
+
+=====================================================================================================================
+
+DOCKER COMPOSE
+
+docker-compose --version = Check its version
+
+docker-compose up (En carpeta con el archivo de compose)
+
+docker-compose up -d = Detached
+
+docker compose ps = Ver estado de docker compose
+
+docker-compose logs = Muestra todos los logs de docker compose
+
+docker-compose Nombre_servicio (como app) = Muestra logs de servicio especifico
+
+docker-compose exec Nombre_servicio bash = Meterse a contenedor
+
+docker-compose down = Borra todos los contenedores incluyendo el network
+
+
+docker-compose build = Construye
+
+docker-compose logs -f Nombre_servicio = Follow a los logs
+
+
+docker-compose scale app=4 = Escalar servicio
+
+
+=====================================================================================================================
+
+DOCKER IGNORE
+
+Ignorar cosas en el build de una imagen
+
+
+=====================================================================================================================
+
+DOCKER MULTI-STAGE BUILDS
+
+docker build -t Nombre -f(file) Ruta .(Contexto) = Construir con archivos parciales de docker file
+
+docker build -t platziapp -f build/development.Dockerfile .
+
+docker run --rm -ti platziapp bash
+
+docker build -t platziapp -f build/production.Dockerfile .
+
+
+=====================================================================================================================
+
+DOCKER IN DOCKER
+
+docker run -it -v /var/run/docker.sock:/var/run/docker.sock docker = Se usa conexion a traves de socker
+
+CORRER DIVE DENTRO DE DOCKER IN DOCKER
+
+docker run --rm -it \
+-v /var/run/docker.sock:/var/run/docker.sock \
+-v $(which docker):/bin/docker \
+wagoodman/dive:latest platziapp
