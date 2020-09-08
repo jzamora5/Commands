@@ -1,3 +1,5 @@
+🚩 CREATE USER FOR PROJECT
+
 CREATE DATABASE IF NOT EXISTS hbnb_dev_db;
 
 CREATE USER IF NOT EXISTS 'hbnb_dev'@'localhost' IDENTIFIED BY 'hbnb_dev_pwd';
@@ -8,4 +10,15 @@ GRANT SELECT ON `performance_schema`.* TO 'hbnb_dev'@'localhost';
 
 FLUSH PRIVILEGES;
 
+========================================================================================
+
+🚩 CHANGE PASSWORD POLICY (NOT PERMANENT, ONLY IN SESSION)
+
+SHOW VARIABLES LIKE 'validate_password%';
+
 SET GLOBAL validate_password.policy=LOW;
+
+
+🚩 SHOW USERS
+
+SELECT user FROM mysql.user;
