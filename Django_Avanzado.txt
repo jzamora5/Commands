@@ -1,3 +1,105 @@
-Initial Build
+🚩 Initial Build
 
-docker-compose -f local.yml build = -f specify file 
+FIX THIS IN REQUIREMENTS
+
+# Passwords security
+argon2-cffi==20.1.0
+
+# Celery
+redis>=3.2.0
+django-redis==4.10.0
+celery==4.2.1
+tornado>=5.0.0,<6.0.0
+flower==0.9.2
+
+
+git clone --single-branch --branch 1/Codebase https://github.com/pablotrinidad/cride-platzi.git
+
+docker-compose -f local.yml build = -f specify file / Construir Imagenes
+
+docker-compose -f local.yml up = Montar servicios
+
+docker-compose -f local.yml ps = Revisar servicios corriendo
+
+docker-compose -f local.yml down = Bajar servicios
+
+==========================================================
+
+🚩 FACILITAR COMANDOS
+
+export COMPOSE_FILE=local.yml
+
+docker-compose build
+
+docker-compose up
+
+docker-compose ps
+
+docker-compose down
+
+===========================================================
+
+🚩 COMANDOS DE ADMINISTRACION
+
+--rm = Cuando se termine de correr el comando, se borra el contenedor
+
+docker-compose run --rm django COMMAND
+
+docker-compose run --rm django python manage.py createsuperuser
+
+jhoan
+
+holberton12345
+
+===========================================================
+
+🚩 Habilitar Debugger
+
+docker-compose up
+
+docker-compose ps
+
+Matar DJANGO
+
+docker rm -f <ID>
+
+docker rm -f cride_django_1
+
+docker-compose run --rm --service-ports django
+
+En URLS
+
+import ipdb; ipdb.set_trace()
+
+MIGRACIONES
+
+docker-compose run --rm django python manage.py
+
+docker-compose run --rm django python manage.py makemigrations
+
+docker-compose run --rm django python manage.py migrate
+
+
+===========================================================
+
+ELIMINAR MODELO ACTUAL DE USUARIOS DE BASE DE DATOS
+
+docker-compose down
+
+docker volume ls
+
+docker volume rm cride_local_postgres_data
+
+============================================================
+
+MUST CORRECT DEPENDENCIES IF USING DJANGO 3, DJANGO EXTENSIONS MUST BE LAST VERSION
+
+PYTHON SHELL
+
+docker-compose run --rm django python manage.py shell_plus
+
+
+
+
+
+
