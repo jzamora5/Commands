@@ -1,0 +1,17 @@
+🚩🚩🚩 En carpeta de proyecto
+
+npm init
+
+npm install postcss-cli --save
+
+npx postcss (To call dependency)
+
+npx postcss --version
+
+npx postcss --help
+
+npx postcss src/css/home.css -o dist/css/home.css = Genera output
+
+npx postcss src/css/home.css -o dist/css/home.css -w = Watch Para que se auto compile con cada cambio que se haga
+
+npx postcss src/css/home.css -o dist/css/home.css -w -u = Use
