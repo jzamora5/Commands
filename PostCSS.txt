@@ -1,4 +1,6 @@
-🚩🚩🚩 En carpeta de proyecto
+🚩🚩🚩 PostCSS =============================================================
+
+En carpeta de proyecto
 
 npm init
 
@@ -15,3 +17,47 @@ npx postcss src/css/home.css -o dist/css/home.css = Genera output
 npx postcss src/css/home.css -o dist/css/home.css -w = Watch Para que se auto compile con cada cambio que se haga
 
 npx postcss src/css/home.css -o dist/css/home.css -w -u = Use
+
+
+🚩🚩🚩 Autoprefixer =============================================================
+
+npm install --save autoprefixer
+
+npx postcss src/css/home.css -o dist/css/home.css -w -u autoprefixer
+
+npx postcss src/css/home.css -o dist/css/home.css -w -u autoprefixer
+
+postcss.config.js = Post CSS Config file  Para no usar u 
+
+Autoprefixer grid for forcing prefixes for anything related to CSS Grid
+
+npx postcss src/css/home.css -o dist/css/home.css -w
+
+/* autoprefixer: off */ in Selector in Src for disabling this plugin when transpiled
+
+
+🚩🚩🚩 CSS Next(Deprecated) -> postcss-preset-env ===============================
+
+npm install postcss-preset-env --save
+
+Add config
+
+"""""""""""
+module.exports = {
+  plugins: [
+    require("postcss-preset-env")({
+      autoprefixer: {
+        grid: true,
+      },
+    }),
+  ],
+};
+
+
+"""""""""""
+
+npx postcss src/css/home.css -o dist/css/home.css -w
+
+
+
+
