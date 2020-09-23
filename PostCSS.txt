@@ -45,6 +45,7 @@ Add config
 """""""""""
 module.exports = {
   plugins: [
+    require("postcss-apply"),
     require("postcss-preset-env")({
       autoprefixer: {
         grid: true,
@@ -53,11 +54,15 @@ module.exports = {
   ],
 };
 
-
 """""""""""
+
+RUN POSTCSS °°°°°°°°°°°°°°°°°°°
 
 npx postcss src/css/home.css -o dist/css/home.css -w
 
+🚩🚩🚩 Media Queries ==============================================================
+
+npm install postcss-custom-media --save
 
 
 
