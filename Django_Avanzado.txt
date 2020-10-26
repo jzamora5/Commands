@@ -107,6 +107,21 @@ token_string = token.decode()
 
 jwt.decode(token, settings.SECRET_KEY, algorithms=['HS256'])
 
+=============================================================
+
+TESTS 
+
+Linter
+
+docker-compose run --rm django flake8 
+
+docker-compose run --rm django pytest
+
+=============================================================
+
+Clean database
+
+docker-compose run --rm django python manage.py flush
 
 
 
