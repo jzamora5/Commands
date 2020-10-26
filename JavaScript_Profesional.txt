@@ -1,0 +1,5 @@
+npm init -y 
+
+npm i -D live-server = Servidor solo para Desarrollo
+
+npm start = Inicia scripts de package json
