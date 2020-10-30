@@ -16,9 +16,18 @@ FLUSH PRIVILEGES;
 
 SHOW VARIABLES LIKE 'validate_password%';
 
-SET GLOBAL validate_password.policy=LOW;
+SET GLOBAL validate_password_policy=LOW;
 
+
+# Set password for root
+SET PASSWORD FOR 'root'@'localhost' = PASSWORD('password');
 
 🚩 SHOW USERS
 
 SELECT user FROM mysql.user;
+
+🚩 WSL No directory, logging in with HOME=/ · GitHub
+
+sudo service mysql stop
+sudo usermod -d /var/lib/mysql/ mysql
+sudo service mysql start
