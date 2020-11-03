@@ -1,3 +1,10 @@
+🚩🚩🚩🚩 Git Squash
+git checkout develop
+git merge --squash feature/alineacionEstrategica
+git commit -m "alineacion estrategica"
+git commit --allow-empty
+
+
 ⚙️ CONFIGURACIONES
 git config --global user.email me@email.com Para definir un correo
 git config --global user.name nombreUsuario Para definir un nombre de usuario
