@@ -3,3 +3,42 @@ npm init -y
 npm i -D live-server = Servidor solo para Desarrollo
 
 npm start = Inicia scripts de package json
+
+# For compiling TypeScript
+
+npm install -D parcel-bundler
+
+package.json
+{
+ "name": "platzi-media-player",
+ "version": "1.0.0",
+ "description": "Proyecto del Curso Profesional de JavaScript de la Escuela de JavaScript de Platzi.",
+ "license": "MIT",
+ "author": "César Augusto Barco <augustopayza@gmail.com>",
+ "keywords": [
+  "platzi"
+ ],
+ "scripts": {
+  "start": "parcel index.html ejercicios/index.html ejercicios/**/*.html"
+ },
+ "devDependencies": {
+  "live-server": "^1.2.1",
+  "parcel-bundler": "^1.12.4"
+ },
+ "browserslist": [
+     "last 1 Chrome version"
+ ]
+}
+
+
+# Remove Live server 
+
+npm rm live-server
+
+
+# Si Parcel con typescript no carga la pagina
+rm -rf .cache dist
+
+
+
+
