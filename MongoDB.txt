@@ -216,3 +216,12 @@ db.survey.find(
 db.survey.find(
    { results: { $elemMatch: { product: "xyz" } } }
 
+🚩🚩🚩 Indices============================================================================================
+
+db.[collection].getIndexes()
+
+db.cursos.getIndexes()
+
+db.cursos.createIndex({nombre: "text"})
+
+db.cursos.find({$text: {$search: "aws"}}, {nombre: 1})
