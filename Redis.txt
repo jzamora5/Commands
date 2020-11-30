@@ -1,0 +1,184 @@
+🚩🚩🚩🚩 Install ===================================================================
+
+$ sudo apt-get -y install redis-server
+$ pip3 install redis
+$ sed -i "s/bind .*/bind 127.0.0.1/g" /etc/redis/redis.conf
+
+
+🚩🚩🚩🚩 Commands ===================================================================
+
+redis-cli = Run CLI
+
+CAPS Are not mandatory, but are the convention
+
+F
+
+🚩🚩🚩🚩 SET KEY / VALUE ===================================================================
+
+SET foo 100 = set key / value
+
+SET bar "Hello World"
+
+SET server:name someserver
+
+SET server:port 8000
+
+
+INCR foo = Increment value (Must be Integer)
+
+DECR foo = Decrement value (Must be Integer)
+
+
+MSET key1 "Hello" key2 "World" = Multiple key set
+
+
+🚩🚩🚩🚩 EXPIRE ===================================================================================
+
+SET greeting "Hello World"
+
+EXPIRE greeting 50 = (Expire in 50 Seconds)
+
+TTL greeting = Time to Live
+
+OR
+
+SETEX greeting 30 "Hello World" = Set with expire value
+
+PERSIST greeting = If you want te remove the Expiration and persist a value
+
+
+🚩🚩🚩🚩 GET KEY / VALUE ===================================================================
+
+GET foo = Obtain value by key, If value does not exists, return (nil)
+
+GET server:name
+
+GET server:port
+
+EXISTS foo = Checks if key Exists
+
+
+🚩🚩🚩🚩 DELETE KEY / VALUE ===================================================================
+
+DEL bar = Removes key / value
+
+FLUSHALL = Removes all key / values
+
+
+🚩🚩🚩🚩 UPDATE KEY / VALUE ===================================================================
+
+RENAME key1 greeting = Changes name of key
+
+APPEND key1 " World" = Appends to key value
+
+
+🚩🚩🚩🚩 LISTS ===============================================================================
+
+CREATE =======
+
+LPUSH people "Brad" = Pushes to beginning of list (If it does not exist, creates it)
+
+RPUSH people "Tom" = Pushes to end of list (If it does not exist, creates it)
+
+LINSERT people BEFORE "Tom" "Jen" = Insert in Middle
+
+GET ==========
+
+LRANGE people 0 -1 = GET Full List (Zero based)
+
+LLEN people = Returns Length of list
+
+DELETE ==========
+
+LPOP people = Removes first element from list
+
+RPOP people = Removes last element from list
+
+
+🚩🚩🚩🚩 SETS ===============================================================================
+
+Don't have repeated values
+
+CREATE ================
+
+SADD cars "Ford" = Adds to set (If it does not exist, creates it)
+
+SISMEMBER cars "Ford" = Checks if element is part of set
+
+SMOVE cars mycars "Ford" = Moves one element for one set to another
+
+GET =====================
+
+SMEMBERS cars = Returns all members of set
+
+SCARD cars = Returns length of set
+
+SDIFF cars mycars = Returns Members between two sets
+
+DELETE ==================
+
+SREM cars "Honda" = Removes element from set
+
+🚩🚩🚩🚩 SORTED SETS ===========================================================================
+
+Each value has a score which will be used for sorting
+
+Score can be repeated
+
+CREATE ====================
+
+ZADD users 1981 "Brad Traversy" = Adds to set with a score of 1981
+
+ZADD users 1975 "John Doe"
+
+GET ========================
+
+ZRANK users "John Doe" = Returns rank of value
+
+ZRANGE users 0 -1 = Print whole set
+
+UPDATE ====================
+
+ZINCRBY users 1 "John Doe" = Increases rank of person (in this case 1975 -> 1976)
+
+🚩🚩🚩🚩 HASHES ===========================================================================
+
+CREATE ================
+
+HSET user:brad name "Brad Traversy"
+
+HSET user:brad email "brag@gmail.com"
+
+HMSET user:john name "John Doe" email "jdoe@yahoo.com" age "25"
+
+HKEYS user:john = Only Keys
+
+HVALS user:john = Only Values
+
+HLEN user:john = Number of key/value pairs
+
+GET ===================
+
+HGET user:brad name
+
+HGETALL user:brad = Gets all data from key
+
+UPDATE ==================
+
+HINCRBY user:john age 1 = Increases value
+
+DELETE ==================
+
+HDEL user:john age
+
+
+🚩🚩🚩🚩 DATA PERSISTENCE =====================================================================
+
+SAVE = Saves a snapshot of data to disk
+
+SAVE 60 1000 = Save every 60 seconds if at least 1000 keys have changed
+
+
+
+
+
