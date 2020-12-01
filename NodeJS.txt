@@ -14,3 +14,16 @@ ADVANCED, PRODUCTION PROCESS MANAGER FOR NODE JS
 
 npm install pm2 -g
 
+🚩🚩🚩🚩 Debugger ===============================================================
+
+node --inspect program.js
+
+chrome://inspect
+
+En VSCODE 
+
+En la parte de la terminal donde se elige cual se usa poner
+
+"JavaScript Debug Terminal" y corre el programa de la manera
+
+node program.js
