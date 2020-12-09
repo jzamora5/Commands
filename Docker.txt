@@ -68,6 +68,8 @@ ps -fea = En linux procesos en ejecucion de TODAS las sesiones
 
 Docker le asigna el PID 1 al proceso con el que se inicia a correr el contenedor
 
+docker exec -it <container name> /bin/bash = Get a bash shell in the container
+
 =======================================================================================================================
 
 NGINX
