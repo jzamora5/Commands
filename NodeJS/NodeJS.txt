@@ -27,3 +27,8 @@ En la parte de la terminal donde se elige cual se usa poner
 "JavaScript Debug Terminal" y corre el programa de la manera
 
 node program.js
+
+🚩🚩🚩🚩 NODE12 ES6 ===============================================================
+
+node --experimental-modules file.mjs
+
