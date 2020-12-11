@@ -20,6 +20,9 @@ node --inspect program.js
 
 chrome://inspect
 
+TAMBIEN SE PUEDE ABRIR EL NAVEGADOR LLENDO AL PUERTO QUE SE MUESTRA CON EL INSPECT
+Y EN LA CONSOLA APARECE UN ICONO DE NODE
+
 En VSCODE 
 
 En la parte de la terminal donde se elige cual se usa poner
