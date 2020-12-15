@@ -1,0 +1,7 @@
+🚩🚩🚩🚩🚩🚩 ==================================================================
+
+Create React app
+
+npx create-react-app [nombre_app]
+
+npm run start

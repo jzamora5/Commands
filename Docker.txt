@@ -47,6 +47,10 @@ docker run -it ubuntu = Asignar un pseudo-tty (Terminal)
 uname -a = System info
 cat /etc/*release = Print Ubuntu system info
 
+Para correr un contenedor con entrypoint definido
+
+docker run -it --entrypoint /bin/bash --name ubuntu ubuntu:latest
+
 ===================================================================================================================
 
 CICLO DE VIDA DE CONTENEDOR
