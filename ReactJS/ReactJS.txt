@@ -1,7 +1,139 @@
-🚩🚩🚩🚩🚩🚩 ==================================================================
+🚩🚩🚩🚩🚩🚩 Base de React ==========================================================
+
+npm init -y
 
 Create React app
 
 npx create-react-app [nombre_app]
 
 npm run start
+
+🚩🚩🚩🚩🚩🚩 Instalar React sin base ==================================================
+
+npm init -y
+
+Estructura de carpetas
+
+- public
+	- index.html
+- src
+	- components
+	- index.js
+- package.json
+
+npm install react react-dom
+
+Instalar Babel 🚀🚀🚀🚀🚀 ====================================================
+
+Solo para desarrollo
+
+npm install @babel/core babel-loader @babel/preset-env @babel/preset-react --save-dev
+
+Crear archivo en raiz de proyecto
+
+.babelrc
+
+{
+    "presets": [
+        "@babel/preset-env",
+        "@babel/preset-react"
+    ]
+}
+
+Webpack 🚀🚀🚀🚀🚀 ====================================================
+
+npm install webpack webpack-cli html-webpack-plugin html-loader --save-dev
+
+const path = require("path");
+const HtmlWebPackPlugin = require("html-webpack-plugin");
+module.exports = {
+  entry: "./src/index.js",
+  output: {
+    path: path.resolve(__dirname, "dist"),
+    filename: "bundle.js",
+  },
+  resolve: {
+    extensions: [".js", ".jsx"],
+  },
+  module: {
+    rules: [
+      {
+        test: /\.(js|jsx)$/,
+        exclude: /node_modules/,
+        use: {
+          loader: "babel-loader",
+        },
+      },
+      {
+        test: /\.html$/,
+        use: [
+          {
+            loader: "html-loader",
+          },
+        ],
+      },
+    ],
+  },
+  plugins: [
+    new HtmlWebPackPlugin({
+      template: "./public/index.html",
+      filename: "./index.html",
+    }),
+  ],
+};
+
+package json script:
+
+"build": "webpack --mode production"
+
+npm run build = compile
+
+
+Webpack Dev Server 🚀🚀🚀🚀🚀 ====================================================
+
+npm install webpack-dev-server --save-dev
+
+Package json script
+
+"start": "webpack serve --mode development --env development"
+
+
+SASS 🚀🚀🚀🚀🚀 ====================================================================
+
+npm install mini-css-extract-plugin css-loader node-sass sass-loader --save-dev
+
+ESLINT 🚀🚀🚀🚀🚀 ==================================================================
+
+npm install eslint babel-eslint eslint-config-airbnb eslint-plugin-import eslint-plugin-react eslint-plugin-jsx-a11y
+
+WEBPACK LOADER para archivos 🚀🚀🚀🚀🚀 ==================================================================
+
+npm install file-loader --save-dev
+
+webpack.config.js
+
+{
+	test: /\.(png|jpe?g|gif)$/,
+	use: [
+	  {
+		loader: "file-loader",
+		options: {
+		  name: "assets/[hash].[ext]",
+		},
+	  },
+	],
+},
+
+
+JSON SERVER 🚀🚀🚀🚀🚀 ==================================================================
+	  
+sudo npm install -g json-server
+
+json-server file.json
+
+
+Prop-types 🚀🚀🚀🚀🚀 ==================================================================
+
+npm install prop-types
+
+
