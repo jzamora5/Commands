@@ -35,3 +35,166 @@ node program.js
 
 node --experimental-modules file.mjs
 
+🚩🚩🚩🚩 Express ==================================================================
+
+npm init -y
+
+Package Json Scripts
+
+"scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "DEBUG=app: * nodemon index",
+    "start": "NODE_ENV=production node index"
+  },
+ 
+⚽⚽⚽ ----------------------------------------------------------------------------
+ 
+Configuracion .eslintrc.json
+
+{
+  "parserOptions": {
+    "ecmaVersion": 2018
+  },
+  "extends": [
+    "eslint:recommended",
+    "prettier"
+  ],
+  "env": {
+    "es6": true,
+    "node": true,
+    "mocha": true
+  },
+  "rules": {
+    "no-console": "warn"
+  }
+}
+
+⚽⚽⚽ Configuracion .prettierrc.json -----------------------------------------------
+
+{
+    "tabWidth": 2,
+    "semi": true,
+    "singleQuote": true
+}
+
+⚽⚽⚽ Install Express --------------------------------------------------------------
+
+npm i express dotenv
+
+-D = Development
+
+npm i -D nodemon eslint eslint-config-prettier eslint-plugin-prettier 
+
+npx mrm lint-staged = Cada vez que se haga commit aplicar formato
+
+⚽⚽⚽ ----------------------------------------------------------------------------
+
+Correr
+
+npm run dev
+
+
+⚽⚽⚽ MONGO -----------------------------------------------------------------------
+
+npm i mongodb
+
+⚽⚽⚽ Boom -----------------------------------------------------------------------
+
+npm i @hapi/boom
+
+Boom nos provee una serie de utilidades para retornar errores HTTP, cada utilidad es un objeto de respuesta de tipo Boom que incluye las siguientes propiedades:
+
+isBoom - si es true indica que es una instancia de Boom.
+
+isServer - si es true indica que el código de respuesta es mayor o igual 500, aquí más informacion de los codigos de respuesta HTTP status Code.
+
+message - el mensaje del error.
+typeof - el constructor usado para crear el error (ejemplo: Boom.badRequest).
+output - la respuesta formateada (generalmente esta es la que usamos) y contiene las siguientes claves:
+
+statusCode - código de estatus HTTP.
+headers - un objeto que contiene encabezados HTTP donde cada clave es un nombre de encabezado y el valor es el contenido del encabezado.
+payload - el objeto formateado usado como respuesta y contiene las siguientes claves:
+- statusCode - código de estatus HTTP, proviene de statusCode
+- error - nombre derivado del error HTTP statusCode.
+- message - mensaje de error derivado de error.message
+
+⚽⚽⚽ Joi -----------------------------------------------------------------------
+
+npm i @hapi/joi
+
+
+Joi is a schema description language and data validator for JavaScript
+
+
+⚽⚽⚽ Tests -----------------------------------------------------------------------
+
+npm i -D mocha supertest sinon proxyquire
+
+⚽⚽⚽ Coverage -----------------------------------------------------------------------
+
+npm i -D nyc
+
+⚽⚽⚽ Despliegue en Now (Vercel) ------------------------------------------------------
+
+npm i -g vercel
+
+vercel secrets add platzivideos-db-user ...
+vercel secrets add platzivideos-db-password ...
+vercel secrets add platzivideos-db-host ...
+vercel secrets add platzivideos-db-name ...
+
+🏀 En vez de los ... se deben colocar las variables de entorno respectivas (las mismas del archivo .env).
+🏀 Talvez necesites crear una cuenta en Vercel ya que te pedirá un email cuando hagas esto.
+🏀 Para ver las variables secretas guardadas (no se ven los valores): vercel secrets ls
+🏀 Ahora añadimos un archivo vercel.json en la raíz del proyecto con el siguiente contenido:
+
+=================================
+
+vercel secrets ls = List secrets
+
+=================================
+
+vercel.json
+
+{
+  "name": "platzivideo",
+  "version": 2,
+  "builds": [
+    {
+      "src": "index.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/index.js"
+    }
+  ],
+  "env": {
+    "DB_USER": "@platzivideos-db-user",
+    "DB_PASSWORD": "@platzivideos-db-password",
+    "DB_HOST": "@platzivideos-db-host",
+    "DB_NAME": "@platzivideos-db-name"
+  }
+}
+
+🏈 PROBAR DESPLIEGE LOCALMENTE ============================
+
+vercel dev
+
+(Decir que no cuando pregunte si se linkea a un proyecto actual)
+
+🎈 Para el despliegue ya completo con el comando:
+
+vercel
+
+🎈 Hay que habilitar acceso por parte de cualquier IP en Mongo atlas para no tener problemas
+como un 502 con vercel
+
+🏈 ALIAS Para cambiar la url dada por defecto ==============
+
+vercel alias URL_DADA_POR_DEFECTO ALIAS
+
+vercel alias https://platzivideo-drab.vercel.app/ platzivideojhoan-api.now.sh
