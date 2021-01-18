@@ -1,0 +1,34 @@
+Web Scraping
+
+
+⚽⚽ XPATH Expressions ========================================================
+
+Developer Tools Console
+
+$x('[xpath expression]')
+
+$x('/')
+
+
+#####################################################
+
+A double slash "//" means any descendant node of the current node in the HTML tree which matches the locator.
+
+A single slash "/" means a node which is a direct child of the current.
+
+#####################################################
+
+$x('//h1')
+
+=====================================================
+
+$x('//h1/a/text()') = [text()] Text of node
+
+$x('//h1/a/text()').map((x) => x.wholeText) = In console to see it with JavaScript
+
+$x('//span/..') = [..] Upper Level
+
+$x('//span/.') = [.] Current level (same as not putting it)
+
+$x('//span/@class') = [@attribute] Obtain attribute from node
+
