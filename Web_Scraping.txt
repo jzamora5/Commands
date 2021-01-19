@@ -45,3 +45,65 @@ $x('//span[@class="text"]') = Span with class attribute equal to text
 $x('//span[@class="text"]/text()') = Texts
 
 $x('//span[@class="text"]/text()').map(x => x.wholeText) = Show text of nodes
+
+⚽⚽ XPATH Operators ========================================================
+
+!= = Different from
+
+$x('//span[@class!="text"]/text()') = Class different from text
+
+position() =  A range of elements
+
+$x('/html/body/div/div[position()>1]') = Todos los que esten encima del primer elemento
+
+and = Logical Operator
+
+$x('//span[@class="text" and @class="tag-item"]')
+
+or = Logical Operator
+
+$x('//span[@class="text" or @class="tag-item"]')
+
+not = Logical Operator
+
+$x('//span[not(@class)]') = Spans without class attribute
+
+⚽⚽ XPATH Wildcards ========================================================
+
+$x('/*') = Todos los nodos inmediatamente despues
+
+$x('/html/*')
+
+$x('//*') = Traeria todo los nodos y atributos
+
+$x('//span[@class="text"]/@*') = Todos los atributos de todos los nodos tipo span
+
+$x('/html/body//div/@*') = Todos los atributos de todos los div despues de body
+
+$x('//span[@class="text" and @itemprop="text"]/node()') = Todos los nodos y contenido que viene despues
+
+⚽⚽ XPATH In-text search ========================================================
+
+The (.) references the current node 
+
+$x('//small[@class="author" and starts-with(., "A")]') = Text starts with "A"
+
+$x('//small[@class="author" and starts-with(., "A")]/text()').map(x => x.wholeText)
+
+
+$x('//small[@class="author" and contains(., "Ro")]') = That contains "Ro"
+
+$x('//small[@class="author" and contains(., "Ro")]/text()').map(x => x.wholeText) = That contains "Ro"
+
+
+🧨🧨🧨 NEXT ONES DO NOT WORK IN BROWSER BECAUSE OF XPATH VERSION BUT WORK IN PYTHON
+
+
+$x('//small[@class="author" and ends-with(., "t")]') = Ends with "t"
+ 
+
+$x('//small[@class="author" and matches(., "A.*n")]') = Matches a regular expression
+ 
+
+ 
+ 
