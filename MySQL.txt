@@ -16,7 +16,7 @@ FLUSH PRIVILEGES;
 
 SHOW VARIABLES LIKE 'validate_password%';
 
-SET GLOBAL validate_password_policy=LOW;
+SET GLOBAL validate_password.policy=LOW;
 
 
 # Set password for root
