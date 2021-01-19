@@ -32,3 +32,16 @@ $x('//span/.') = [.] Current level (same as not putting it)
 
 $x('//span/@class') = [@attribute] Obtain attribute from node
 
+⚽⚽ XPATH Predicates ========================================================
+
+$x('/html/body/div/div[1]') = First one
+
+$x('/html/body/div/div[last()]') = Last one
+
+$x('//span[@class]') = Spans that have class attribute
+
+$x('//span[@class="text"]') = Span with class attribute equal to text
+
+$x('//span[@class="text"]/text()') = Texts
+
+$x('//span[@class="text"]/text()').map(x => x.wholeText) = Show text of nodes
