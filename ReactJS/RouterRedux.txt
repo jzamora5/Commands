@@ -3,3 +3,7 @@
 
 npm install react-router-dom --save
 
+⚽⚽ Instalar Redux =========================================================
+
+npm install redux react-redux --save = Se guarda como dependencia de desarrollo
+
