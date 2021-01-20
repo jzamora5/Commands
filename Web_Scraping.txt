@@ -26,7 +26,7 @@ $x('//h1/a/text()') = [text()] Text of node
 
 $x('//h1/a/text()').map((x) => x.wholeText) = In console to see it with JavaScript
 
-$x('//span/..') = [..] Upper Level
+$x('//span/..') = [..] Upper Level (Parent Node)
 
 $x('//span/.') = [.] Current level (same as not putting it)
 
@@ -104,6 +104,46 @@ $x('//small[@class="author" and ends-with(., "t")]') = Ends with "t"
 
 $x('//small[@class="author" and matches(., "A.*n")]') = Matches a regular expression
  
+⚽⚽ XPATH Axes ====================================================================
+ 
+🎹 self::div = same as (.) which means the node where I am currently at
 
+$x('/html/body/div/self::div')
+
+🎹 child::div = All children of the div
+
+$x('/html/body/div/child::div')
+
+🎹 descendant::div = All nodes in inferior levels
+
+$x('/html/body/div/descendant::div')
+
+🎹 descendant-or-self::div = Union between descendants and the current node itself 
  
+$x('/html/body/div/descendant-or-self::div')
  
+
+⚽⚽ XPATH Examples in http://books.toscrape.com/ Books ====================================================================
+
+Titles of Books
+
+$x('//article[@class="product_pod"]/h3/a/@title').map(x => x.value)
+
+Prices of Books
+
+$x('//article[@class="product_pod"]/div[@class="product_price"]/p[@class="price_color"]/text()').map(x => x.wholeText)
+
+Categories of Books (Must be stripped from white spaces)
+
+$x('//div[@class="side_categories"]/ul[@class="nav nav-list"]/li/ul/li/a/text()').map(x => x.wholeText)}}
+
+
+FOR A BOOK ITEM
+
+Book Description
+
+$x('//div[@id="content_inner"]/article[@class="product_page"]/p/text()').map(x => x.wholeText)
+
+Book Stock
+
+$x('//div[@id="content_inner"]/article[@class="product_page"]/table[@class="table table-striped"]/tbody/tr[6]/td/text()').map(x => x.wholeText)
