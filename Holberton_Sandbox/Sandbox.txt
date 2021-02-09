@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+## Script to update system
+sudo apt-get update -y
+## Script to Install git
+sudo apt-get install -y git
+## Script to Install emacs
+sudo apt-get install -y emacs
+## Script to Install Betty
+git clone https://github.com/holbertonschool/Betty.git
+./Betty/install.sh
+rm -rf /Betty
+## Config Betty in emacs
+echo -e "(setq c-default-style \"bsd\"" >> ~/.emacs
+echo -e "\tc-basic-offset 8" >> ~/.emacs
+echo -e "\ttab-width 8" >> ~/.emacs
+echo -e "\tindent-tabs-mode t)" >> ~/.emacs
+echo -e "(require 'whitespace)" >> ~/.emacs
+echo -e "(setq whitespace-style '(face empty lines-tail trailing))" >> ~/.emacs
+echo -e "(global-whitespace-mode t)" >> ~/.emacs
+echo -e "(setq column-number-mode t)" >> ~/.emacs
+## Config Betty in vim
+echo -e "set nocompatible" >> ~/.vimrc
+echo -e "syntax on" >> ~/.vimrc
+echo -e "filetype indent on" >> ~/.vimrc
+## Solve Windows user Problem with REPLACE MODE
+echo -e "set t_u7=''" >> ~/.vimrc 
+echo -e "set number" >> ~/.vimrc
+echo -e "set tabstop=8" >> ~/.vimrc
+echo -e "set shiftwidth=8" ~/.vimrc
+## Install gcc
+sudo apt-get install -y gcc

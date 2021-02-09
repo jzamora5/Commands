@@ -7,3 +7,6 @@ npm install react-router-dom --save
 
 npm install redux react-redux --save = Se guarda como dependencia de desarrollo
 
+⚽⚽ Instalar MD5 for Gravatar ===================================================
+
+npm install md5 --save

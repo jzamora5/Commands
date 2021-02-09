@@ -147,3 +147,8 @@ $x('//div[@id="content_inner"]/article[@class="product_page"]/p/text()').map(x =
 Book Stock
 
 $x('//div[@id="content_inner"]/article[@class="product_page"]/table[@class="table table-striped"]/tbody/tr[6]/td/text()').map(x => x.wholeText)
+
+
+
+
+
