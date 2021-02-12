@@ -10,3 +10,7 @@ npm install redux react-redux --save = Se guarda como dependencia de desarrollo
 ⚽⚽ Instalar MD5 for Gravatar ===================================================
 
 npm install md5 --save
+
+⚽⚽ Instalar classnames ===================================================
+
+npm install classnames --save
