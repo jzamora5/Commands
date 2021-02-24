@@ -1,0 +1,48 @@
+scrapy startproject [project_name] = Create new scrapy project
+
+scrapy startproject tutorial
+
+In project folder
+
+scrapy crawl [spider_name] = Run scrapy
+
+scrapy crawl quotes
+
+🛑 SCRAPY SHELL =============================================================================
+
+scrapy shell 'url'
+
+scrapy shell 'https://quotes.toscrape.com/page/1/'
+
+response.xpath('//h1/a/text()').get() = Trae el nodo de XPath correspondiente
+
+response.xpath('//span[@class="text" and @itemprop="text"]/text()').getall() = Traer varios nodos
+
+
+Request/Response Methods
+
+request.encoding
+
+request.method
+
+response.status
+
+response.headers
+
+response.body
+
+
+INSIDE PROJECT FOLDER
+
+scrapy crawl [name_of_spider] = Run spider
+
+scrapy crawl quotes
+
+
+🛑 XPATH =============================================================================
+
+scrapy shell "https://quotes.toscrape.com/"
+
+Top Ten Tags
+
+response.xpath('//div[contains(@class, "tags-box")]//span[@class="tag-item"]/a/text()').getall()
