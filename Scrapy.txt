@@ -50,12 +50,11 @@ response.xpath('//div[contains(@class, "tags-box")]//span[@class="tag-item"]/a/t
 
 🛑 OUTPUT TO FILE ========================================================================
 
-En carpeta de proyecto teniendo metodo de spider como generador
+In Folder having the spider method as a generator function
 
 Each time the command is run, information is APPENDED
 
 Solution is to erase file before if needed
-
 
 
 scrapy [spider] crawl -o archivo.json = En JSON
@@ -65,3 +64,9 @@ scrapy crawl quotes -o quotes.json
 scrapy [spider] crawl -o archivo.csv = En CSV
 
 scrapy crawl quotes -o quotes.csv
+
+
+SI SE CONFIGURA custom_settings en el Spider no es necesario el -o
+
+scrapy crawl quotes
+
