@@ -70,3 +70,26 @@ SI SE CONFIGURA custom_settings en el Spider no es necesario el -o
 
 scrapy crawl quotes
 
+🛑 Pass arguments to Spider ========================================================================
+
+With flag -a 
+
+crapy crawl spider -a argument=value
+
+In spider you get it with getattr(self, 'variable', None)
+
+Example:
+
+scrapy crawl quotes -a top=3
+
+top = getattr(self, 'top', None)
+
+🎈 MULTIPLE ARGUMENTS
+
+crapy crawl spider -a argument1=value -a argument2=value2
+
+
+
+
+
+
