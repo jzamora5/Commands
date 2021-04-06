@@ -67,3 +67,41 @@ En package.json
       "...": "..."
     }
   }
+  
+  
+  
+
+♦ PayPal Sandbox ================================================================================================
+
+npm install react-paypal-button
+  
+Create Account for Sandbox
+ 
+ 
+Get to the "Sandbox Accounts"
+Create Account
+Select the created account in Manage accounts "View/Edit Accounts"
+Under Profile use the Email ID and System Generated Password Provided enter image description here
+  
+  
+Tarjeta de Credito de Prueba
+
+4242 4242 4242 4242 
+
+Date and CSC dont matter
+
+♦ Google Maps Places API ================================================================================================
+
+npm install @react-google-maps/api --save
+
+
+♦ React Helmet for SEO ================================================================================================
+
+npm install react-helmet
+
+
+♦ STRAPI API ===========================================================================================================
+
+npx create-strapi-app my-project --quickstart
+
+npx create-strapi-app platziconf-backend --quickstart
