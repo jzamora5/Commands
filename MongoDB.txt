@@ -67,7 +67,7 @@ db.inventory.find( { qty: { $gt: 30 } } )
 
 
 # Condición AND
-db.inventory.find( { status: "A", qty: { $lt: 30 } } )
+db.inventory.find( { $and: [ { price: { $ne: 1.99 } }, { price: { $exists: true } } ] } )
 
 
 # Condición OR con operador
@@ -148,7 +148,7 @@ db.inventory.find({status: "A"})
 # Borrar muchos documentos de acuerdo a un filtro
 db.inventory.deleteMany({ status : "A" })
 
-# Borrar todos los documentos de una base datos
+# Borrar todos los documentos de una coleccion
 db.inventory.deleteMany({})
 
 

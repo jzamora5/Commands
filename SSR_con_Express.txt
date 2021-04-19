@@ -1,0 +1,17 @@
+⚽ Dependencies
+
+
+npm install @babel/register
+npm install dotenv
+npm install express
+
+
+index.js
+
+
+require("@babel/register")({
+  presets: ["@babel/preset-env", "@babel/preset-react"],
+});
+
+require("./server");
+

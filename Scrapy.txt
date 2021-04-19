@@ -88,7 +88,11 @@ top = getattr(self, 'top', None)
 
 crapy crawl spider -a argument1=value -a argument2=value2
 
+🛑 In SHELL ========================================================================
 
+GO TO ANOTHER URL
+
+fetch(url)
 
 
 
