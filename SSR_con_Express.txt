@@ -15,3 +15,8 @@ require("@babel/register")({
 
 require("./server");
 
+npm install webpack-dev-middleware webpack-hot-middleware --dev
+
+npm i @babel/plugin-transform-runtime --save-dev
+
+npm install react-hot-loader --save-dev
