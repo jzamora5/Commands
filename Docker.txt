@@ -144,7 +144,7 @@ Eg. docker pull ubuntu:16.04
 
 docker images OR docker image ls = List images
 
-docker rmi -f nombre_imagen O id = Borrar una imagen en partigular
+docker rmi -f nombre_imagen O id = Borrar una imagen en particular
 
 =====================================================================================================================
 
@@ -199,6 +199,7 @@ DOCKER NETWORKING
 
 docker network ls = Muestra las redes de docker
 
+docker run --name my_container -t -d --network host nginx
 
 bridge = Deprecado
 

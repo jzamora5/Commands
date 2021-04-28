@@ -20,3 +20,7 @@ npm install webpack-dev-middleware webpack-hot-middleware --dev
 npm i @babel/plugin-transform-runtime --save-dev
 
 npm install react-hot-loader --save-dev
+
+npm install history react-router-config
+
+npm install react-router
