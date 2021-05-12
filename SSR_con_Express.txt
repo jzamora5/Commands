@@ -24,3 +24,7 @@ npm install react-hot-loader --save-dev
 npm install history react-router-config
 
 npm install react-router
+
+npm install ignore-styles
+
+npm install asset-require-hook
