@@ -28,3 +28,37 @@ npm install react-router
 npm install ignore-styles
 
 npm install asset-require-hook
+
+
+https://helmetjs.github.io/
+
+npm install helmet --save
+
+
+npm install compression-webpack-plugin --save-dev
+
+npm install terser-webpack-plugin --save-dev
+
+npm install webpack-manifest-plugin
+
+
+
+Si quieren que su carpeta public se limpie cada vez que hagan un build, instalen
+
+npm i -D clean-webpack-plugin
+
+y agreguen la siguiente configuración a su webpack.config.js porque cada que hagan cambios 
+y hagan un build, los archivos se generarán con un hash diferente, y con esto no tendrán archivos basura.
+
+
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+
+// en la parte de los plugins
+isDev
+  ? () => {}
+  : new CleanWebpackPlugin({
+    cleanOnceBeforeBuildPatterns: path.resolve(__dirname, 'src/server/public')
+  })
+  
+  
+npm install eslint-loader eslint --save-dev
