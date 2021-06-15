@@ -62,3 +62,42 @@ isDev
   
   
 npm install eslint-loader eslint --save-dev
+
+
+✔ Test if server side render is working =======================================================================================
+
+Dev Tools > Gear (Settings) > Preferences -> Debugger -> Disable JavaScript 
+
+Page should still work
+
+
+✔ NextJS ===================================================================================================================
+
+In dedicated folder for nextjs
+
+npm init
+
+npm i react react-dom next
+
+"scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  
+Folder pages will redirect to routes
+
+
+✔ GatsbyJS ===================================================================================================================
+
+npm install -g gatsby-cli
+
+gatsby new platzivideo-gatsby
+
+cd platzivideo-gatsby
+
+gatsby develop
+
+Not default SSR, you must configure it in gatsby-ssr.js
+

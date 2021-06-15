@@ -1,0 +1,37 @@
+npx license mit > LICENSE && npx gitignore node && git init && npm init -y
+
+npm i graphql
+
+npm i express express-graphql
+
+npm i graphql-tools
+
+
+➕ Query in Graphql
+
+You can select the fields you want even if there are more
+
+in this case _id and title were selected
+
+{
+	getCourses{
+		_id
+		title
+  }
+}
+
+
+➕ Query an specific resource
+
+{
+	getCourse(id: "1") {
+    _id
+		title
+    description
+	}
+}
+
+
+
+
+
