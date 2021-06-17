@@ -31,7 +31,134 @@ in this case _id and title were selected
 	}
 }
 
+➕ Mutate Data (Insert)
+
+mutation {
+  createCourse(input: {
+      title: "Curso de ejemplo 4"
+      description: "Descripcion 4"
+      topic: "diseño"
+  }){
+    _id
+    title
+    description
+  }
+}
 
 
+mutation {
+  createStudent(input: {
+      name: "Estudiante 2"
+    	email: "estudiante2@gmail.com"
+  }){
+    _id
+    name
+    email
+  }
+}
 
 
+➕ Mutate Data (Edit)
+
+mutation {
+	editCourse(_id: "60ca23824cbf7308911c4b21", input: {
+			title: "Mi Titulo 4"
+  }) {
+		_id
+		title
+	}
+}
+
+➕ query for Nested Type with implemented resolver 
+
+{
+	getCourses {
+		_id
+    title
+    people {
+		  _id
+		  name
+		  email
+	  }
+	}
+}
+
+
+🔹🔹🔹🔹 Alias
+
+{
+	AllCourses: getCourses {
+		_id
+    title
+	}
+
+  Course1: getCourse(id: "60ca1b690c131360e5d08547") {
+      _id
+      title
+      description
+  }
+  
+  Course2: getCourse(id: "60ca1b690c131360e5d08548") {
+      title
+      description
+      topic
+  }
+}
+
+
+🔹🔹🔹🔹 Fragment
+
+{
+	AllCourses: getCourses {
+		...CourseFields
+	}
+
+  Course1: getCourse(id: "60ca1b690c131360e5d08547") {
+    ...CourseFields
+    teacher
+  }
+  
+  Course2: getCourse(id: "60ca1b690c131360e5d08548") {
+      ...CourseFields
+      topic
+  }
+}
+
+fragment CourseFields on Course {
+
+	_id
+  title
+	description
+}
+
+⬛ ⬛  With nested fields
+
+
+{
+	AllCourses: getCourses {
+		...CourseFields
+	}
+
+  Course1: getCourse(id: "60ca1b690c131360e5d08547") {
+    ...CourseFields
+    teacher
+    people {
+			email		
+		}
+  }
+  
+  Course2: getCourse(id: "60ca1b690c131360e5d08548") {
+      ...CourseFields
+      topic
+  }
+}
+
+fragment CourseFields on Course {
+	_id
+  title
+	description
+  people {
+		_id
+    name
+	}
+}
