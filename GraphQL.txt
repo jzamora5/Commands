@@ -162,3 +162,101 @@ fragment CourseFields on Course {
     name
 	}
 }
+
+
+
+🔹🔹🔹🔹 Variables
+
+
+mutation AddPersonToCourse2 ($course: ID!, $person:ID!) {
+	addPeople(courseID: $course, personID: $person) {
+			_id
+			title
+	}
+	
+}
+
+
+⬛ ⬛ In Query Variables AS JSON (Needs commas)
+
+{
+	"course": "60ca1b690c131360e5d08548",
+  "person": "60ca2b60a51e270abca10381"
+}
+
+
+
+=======================
+
+query GetCourse2($course: ID!){
+  
+  getCourse(id: $course) {
+		_id
+    title
+	}
+}
+
+Query Variables
+
+{
+	"course": "60ca1b690c131360e5d08548"
+}
+
+
+
+🔹🔹🔹🔹 Query asking if any type Monitor implemented with Interface
+
+{
+	getPeople{
+		_id
+    name
+    email
+    ... on Monitor {
+			phone
+		}
+	}
+}
+
+==============
+
+{
+	getPeople{
+		_id
+    name
+    email
+    ... on Monitor {
+			phone
+		}
+	... on Student {
+	
+  	avatar
+  }
+	}
+}
+
+
+🔹🔹🔹🔹 Directives
+
+
+query getPeopleData($monitor: Boolean!, $avatar: Boolean!) {
+	getPeople{
+		_id
+    name
+    email
+    ... on Monitor @include(if: $monitor) {
+			phone
+		}
+    ... on Student @skip (if: $avatar) {
+			avatar
+      email
+		}
+	}
+}
+
+
+Query Variables
+
+{
+  "monitor": false,
+  "avatar": false
+}
