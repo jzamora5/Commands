@@ -1,0 +1,23 @@
+Links for Deployment in Vercel
+
+https://petgram-server-jhoan-8e4aw2sxk-jzamora5.vercel.app/
+
+https://petgram-xi-ecru.vercel.app/
+
+
+## Test performance
+
+**Compile app
+
+./node_modules/.bin/webpack --mode "development"
+
+** Run app (s flag for SPA)
+
+npx serve dist -s
+
+
+## PWA
+
+npm install webpack-pwa-manifest -D
+
+npm install workbox-webpack-plugin -D
