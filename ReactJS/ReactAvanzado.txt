@@ -21,3 +21,10 @@ npx serve dist -s
 npm install webpack-pwa-manifest -D
 
 npm install workbox-webpack-plugin -D
+
+
+## End to End Testing
+
+npm install cypress -D
+
+./node_modules/.bin/cypress open
