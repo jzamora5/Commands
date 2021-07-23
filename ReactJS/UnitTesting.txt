@@ -15,6 +15,15 @@
 
 *********************************************************************
 
-Run tests but recreating snapshots
+++ Run tests but recreating snapshots
 
 jest --updateSnapshot
+
+++ Mocking fetch
+
+npm install jest-fetch-mock -D
+
+In setupTest.js include
+
+global.fetch = require('jest-fetch-mock');
+
