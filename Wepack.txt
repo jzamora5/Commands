@@ -1,0 +1,16 @@
+npm install webpack webpack-cli -D
+ 
+npx webpack
+
+
+npx webpack --mode development
+
+npx webpack --mode production
+
+
+npx webpack --mode production --config webpack.config.js
+
+
+🌐🌐 Babel
+
+npm install babel-loader @babel/core @babel/preset-env @babel/plugin-transform-runtime -D
