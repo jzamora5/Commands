@@ -14,3 +14,32 @@ npx webpack --mode production --config webpack.config.js
 🌐🌐 Babel
 
 npm install babel-loader @babel/core @babel/preset-env @babel/plugin-transform-runtime -D
+
+
+🌐🌐 HTML
+
+npm install html-webpack-plugin -D
+
+
+🌐🌐 CSS and PREPROCESSORS
+
+npm install mini-css-extract-plugin css-loader -D
+
+npm install stylus stylus-loader
+
+
+🌐🌐 Copiar Archivos con Webpack
+
+
+npm install copy-webpack-plugin -D
+
+
+🌐🌐 Loader de imagenes
+
+Comes with webpack
+
+in a module rule
+{
+	test: /\.png/,
+	type: 'asset/resource',
+},
