@@ -43,3 +43,12 @@ in a module rule
 	test: /\.png/,
 	type: 'asset/resource',
 },
+
+🌐🌐 Loader de fuentes
+
+npm install url-loader file-loader -D
+
+
+🌐🌐 Optimizacion hashes, compresion y mimificacion
+
+npm install css-minimizer-webpack-plugin terser-webpack-plugin -D
