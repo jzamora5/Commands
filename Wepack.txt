@@ -1,0 +1,54 @@
+npm install webpack webpack-cli -D
+ 
+npx webpack
+
+
+npx webpack --mode development
+
+npx webpack --mode production
+
+
+npx webpack --mode production --config webpack.config.js
+
+
+🌐🌐 Babel
+
+npm install babel-loader @babel/core @babel/preset-env @babel/plugin-transform-runtime -D
+
+
+🌐🌐 HTML
+
+npm install html-webpack-plugin -D
+
+
+🌐🌐 CSS and PREPROCESSORS
+
+npm install mini-css-extract-plugin css-loader -D
+
+npm install stylus stylus-loader
+
+
+🌐🌐 Copiar Archivos con Webpack
+
+
+npm install copy-webpack-plugin -D
+
+
+🌐🌐 Loader de imagenes
+
+Comes with webpack
+
+in a module rule
+{
+	test: /\.png/,
+	type: 'asset/resource',
+},
+
+🌐🌐 Loader de fuentes
+
+npm install url-loader file-loader -D
+
+
+🌐🌐 Optimizacion hashes, compresion y mimificacion
+
+npm install css-minimizer-webpack-plugin terser-webpack-plugin -D
