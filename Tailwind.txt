@@ -1,0 +1,17 @@
+
+⚽️⚽️ Install =========================================
+
+npm install tailwindcss autoprefixer postcss-cli
+
+npx tailwindcss init
+
+
+** VSCODE Extension
+
+Tailwind CSS IntelliSense
+
+
+
+⚽️⚽️  Config with all properties =====================================
+
+npx tailwindcss init tailwind.config.full.js --full
