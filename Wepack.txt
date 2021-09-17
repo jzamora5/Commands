@@ -52,3 +52,25 @@ npm install url-loader file-loader -D
 🌐🌐 Optimizacion hashes, compresion y mimificacion
 
 npm install css-minimizer-webpack-plugin terser-webpack-plugin -D
+
+
+🌐🌐 Variables de entorno
+
+npm install dotenv-webpack -D
+
+
+🌐🌐 Limpiar build
+
+npm install clean-webpack-plugin -D
+
+
+🌐🌐 Webpack dev server
+
+npm install webpack-dev-server -D
+
+🌐🌐 Bundle analyzer
+
+npm install webpack-bundle-analyzer -D
+
+npx webpack --profile --json > stats.json
+npx webpack-bundle-analyzer stats.json
