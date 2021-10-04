@@ -15,3 +15,28 @@ Tailwind CSS IntelliSense
 ⚽️⚽️  Config with all properties =====================================
 
 npx tailwindcss init tailwind.config.full.js --full
+
+
+⚽️⚽️  Alpine JS =====================================
+
+The tailwind of JavaScript
+
+https://alpinejs.dev/
+
+https://github.com/alpinejs/alpine
+
+
+⚽️⚽️  Purge CSS =====================================
+
+https://purgecss.com/
+
+For POSTCSS which tailwind uses and removes unused css
+
+npm i -D @fullhuman/postcss-purgecss postcss
+
+
+⚽️⚽️  CSS Nano =====================================
+
+For minifying css.
+
+npm install cssnano --save-dev
