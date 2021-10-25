@@ -40,5 +40,5 @@ tsc --project platzi -> Especifica un directorion que contiene la configuracion
 
 tsc file.ts -> Omite la configuracion
 
-
+tsc --watch
 
