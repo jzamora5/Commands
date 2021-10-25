@@ -1,0 +1,44 @@
+⚽️ ---------------------------------
+npm install -g typescript
+
+tsc hello.ts
+
+hello.js
+
+tsc --watch hello.ts
+
+
+
+⚽️ Initialize project to generate tsconfig.json
+
+tsc --init
+
+
+{
+	"extends": "./config/base",
+  "compileOnSave": true,
+	"compilerOptions":{
+		"target": "es6",
+		"module": "commonjs"
+		"strict": true,
+		"removeComments": true
+	},
+	"include":[
+		"src/**/*.ts"
+	],
+	"exclude": [
+		"node_modules",
+		"**/*.test.ts"
+	]
+}
+
+Usar el archivo de config
+
+tsc -> Busca la configuracion
+
+tsc --project platzi -> Especifica un directorion que contiene la configuracion
+
+tsc file.ts -> Omite la configuracion
+
+
+
