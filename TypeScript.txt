@@ -42,3 +42,13 @@ tsc file.ts -> Omite la configuracion
 
 tsc --watch
 
+
+
+⚽️  Otros flags
+
+Deshabilitar la asignación de null o undefined a variables de otro tipo
+
+tsc --watch src/main.ts --strictNullChecks
+
+
+También se puede dejar global en el archivo tsconfig.json
