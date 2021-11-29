@@ -40,8 +40,12 @@ tsc --project platzi -> Especifica un directorion que contiene la configuracion
 
 tsc file.ts -> Omite la configuracion
 
-tsc --watch
 
+En tsconfig.json
+
+"traceResolution": true
+
+Sirve para mostrar el trazado de rutas que TS usa al momento de compilar
 
 
 ⚽️  Otros flags
@@ -52,3 +56,16 @@ tsc --watch src/main.ts --strictNullChecks
 
 
 También se puede dejar global en el archivo tsconfig.json
+
+Estando dentro de un proyecto
+tsc --watch 
+
+tsc --project photo-app --watch
+
+
+⚽️  Resolucion de modulos
+
+tsc --moduleResolution node
+
+tsc --moduleResolution classic
+
