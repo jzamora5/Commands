@@ -69,3 +69,10 @@ tsc --moduleResolution node
 
 tsc --moduleResolution classic
 
+⚽️  Wepback
+
+npm init -y
+
+npm install typescript webpack webpack-cli --save-dev
+
+npm install ts-loader --save-dev
