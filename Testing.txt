@@ -3,3 +3,8 @@
 #!/usr/bin/env bash
 # Run code coverage on specific file
 npx jest --config jest.config.js $1 --coverage --collectCoverageFrom=$2
+
+
+As command line arguments
+($1 is the file to test like proposal-lines-saga.test.js)
+($2 is the file to compare to get the coverage, it must have relative path like src/sagas/proposal-details/proposal-lines-saga.js)
