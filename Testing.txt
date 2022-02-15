@@ -1,0 +1,5 @@
+// Script to run Coverage on specific file
+
+#!/usr/bin/env bash
+# Run code coverage on specific file
+npx jest --config jest.config.js $1 --coverage --collectCoverageFrom=$2
